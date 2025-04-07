@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pepee TV</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #FFD700;
+    }
+    nav {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+    }
+    nav a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .section {
+      padding: 20px;
+    }
+    h2 {
+      background-color: #001f3f;
+      color: #FFD700;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .social-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .social-buttons a {
+      padding: 10px 20px;
+      background-color: #FFD700;
+      color: #000;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .stats {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    .noticia {
+      background-color: #111;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .comentarios {
+      margin-top: 10px;
+    }
+    .slide {
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: center;
+      background: #222;
+      color: #FFD700;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  Pepee TV
+</header>
+
+<nav>
+  <a href="#noticias">Notícias</a>
+  <a href="#patrocinios">Patrocínios</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<div class="section" id="noticias">
+  <h2>Últimas Notícias do Esporte</h2>
+
+  <div class="noticia">
+    <h3>Campeonato Regional começa neste domingo</h3>
+    <p>Os times já estão preparados e a expectativa é de grandes jogos. Acompanhe tudo aqui na Pepee TV!</p>
+    <div class="comentarios">
+      <p><strong>Comentários:</strong></p>
+      <textarea rows="3" cols="40" placeholder="Deixe seu comentário..."></textarea><br>
+      <label>Nota: <input type="number" min="1" max="5"></label>
+    </div>
+  </div>
+
+  <div class="noticia">
+    <h3>Time da cidade vence amistoso contra rival</h3>
+    <p>Partida emocionante termina com vitória do time local por 3x2.</p>
+    <div class="comentarios">
+      <p><strong>Comentários:</strong></p>
+      <textarea rows="3" cols="40" placeholder="Deixe seu comentário..."></textarea><br>
+      <label>Nota: <input type="number" min="1" max="5"></label>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="patrocinios">
+  <h2>Anúncios de Patrocínio</h2>
+  <p>Seja um parceiro da Pepee TV e tenha sua marca divulgada nos nossos conteúdos esportivos.</p>
+</div>
+
+<div class="section" id="contato">
+  <h2>Entre em Contato</h2>
+  <div class="social-buttons">
+    <a href="https://wa.me/seunumero">WhatsApp</a>
+    <a href="https://instagram.com/seuperfil">Instagram</a>
+    <a href="#">Outros Links</a>
+  </div>
+</div>
+
+<div class="section slide">
+  <h2>Opiniões sobre a Pepee TV</h2>
+  <p>“Muito bom acompanhar os jogos por aqui!”</p>
+  <p>“As notícias chegam rápido e com qualidade!”</p>
+  <p>“Parabéns pela cobertura esportiva!”</p>
+</div>
+
+<div class="stats">
+  <p>Visualizações: <span id="views">0</span></p>
+  <p>Acessos: <span id="accesses">0</span></p>
+  <p>Cliques nos links: <span id="clicks">0</span></p>
+</div>
+
+<footer style="background-color: #1a1a1a; text-align: center; padding: 10px;">
+  &copy; 2025 Pepee TV. Todos os direitos reservados.
+</footer>
+
+<script>
+  let views = localStorage.getItem('views') || 0;
+  let accesses = sessionStorage.getItem('accesses') || 0;
+  let clicks = localStorage.getItem('clicks') || 0;
+
+  views++;
+  accesses++;
+
+  document.getElementById('views').textContent = views;
+  document.getElementById('accesses').textContent = accesses;
+  document.getElementById('clicks').textContent = clicks;
+
+  localStorage.setItem('views', views);
+  sessionStorage.setItem('accesses', accesses);
+
+  const links = document.querySelectorAll('.social-buttons a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      clicks++;
+      localStorage.setItem('clicks', clicks);
+    });
+  });
+</script>
+
+</body>
+</html>
